@@ -1,0 +1,201 @@
+
+
+
+/*----------------------------------------------
+  菜单
+-----------------------------------------------*/
+#menu-nav ul {
+  position: fixed;
+  width: 90%;
+  max-width: 358px;
+  left: 3%;
+  bottom: 20px;
+  border-radius: 0.25em;
+  box-shadow: 0 0 10px rgba(232, 74, 100, 0.4);
+  background: white;
+  z-index: 6;
+  overflow: hidden;
+  visibility: hidden;
+  -webkit-transform: scale(0);
+  -moz-transform: scale(0);
+  -ms-transform: scale(0);
+  -o-transform: scale(0);
+  transform: scale(0);
+  -webkit-transform-origin: 0 100%;
+  -moz-transform-origin: 0 100%;
+  -ms-transform-origin: 0 100%;
+  -o-transform-origin: 0 100%;
+  transform-origin: 0 100%;
+  -webkit-transition: -webkit-transform 0.3s, visibility 0s 0.3s;
+  -moz-transition: -moz-transform 0.3s, visibility 0s 0.3s;
+  transition: transform 0.3s, visibility 0s 0.3s;
+}
+
+#menu-nav ul li {
+  /* Force Hardware Acceleration in WebKit */
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+#menu-nav ul li a {
+  display: block;
+  padding: 1.6em;
+  border-bottom: 1px solid #eff2f6;
+  text-align: right;
+  color: #e84a64;
+}
+
+#menu-nav ul li a:hover {
+  color: #00bd9b;
+}
+
+#menu-nav li:last-child a {
+  border-bottom: none;
+}
+
+#menu-nav ul.is-visible {
+  visibility: visible;
+  -webkit-transform: scale(1);
+  -moz-transform: scale(1);
+  -ms-transform: scale(1);
+  -o-transform: scale(1);
+  transform: scale(1);
+  -webkit-transition: -webkit-transform 0.3s, visibility 0s 0s;
+  -moz-transition: -moz-transform 0.3s, visibility 0s 0s;
+  transition: transform 0.3s, visibility 0s 0s;
+}
+
+#menu-nav ul.is-visible li:nth-child(1) {
+  /* list items animation */
+  -webkit-animation: cd-slide-in 0.2s;
+  -moz-animation: cd-slide-in 0.2s;
+  animation: cd-slide-in 0.2s;
+}
+
+#menu-nav ul.is-visible li:nth-child(2) {
+  -webkit-animation: cd-slide-in 0.35s;
+  -moz-animation: cd-slide-in 0.35s;
+  animation: cd-slide-in 0.35s;
+}
+
+#menu-nav ul.is-visible li:nth-child(3) {
+  -webkit-animation: cd-slide-in 0.45s;
+  -moz-animation: cd-slide-in 0.45s;
+  animation: cd-slide-in 0.45s;
+}
+
+#menu-nav ul.is-visible li:nth-child(4) {
+  -webkit-animation: cd-slide-in 0.55s;
+  -moz-animation: cd-slide-in 0.55s;
+  animation: cd-slide-in 0.55s;
+}
+
+
+#menu-nav .cd-nav-trigger {
+  position: fixed;
+  bottom: 20px;
+  left: 3%;
+  width: 44px;
+  height: 44px;
+  background: #fff;
+  border-radius: 0.25em;
+  box-shadow: 0 0 10px rgba(232, 74, 100, 0.4);
+  z-index: 7;
+}
+
+#menu-nav .cd-nav-trigger span {
+  position: absolute;
+  display: block;
+  width: 20px;
+  height: 2px;
+  background: #e84a64;
+  top: 50%;
+  margin-top: -1px;
+  left: 50%;
+  margin-left: -10px;
+  -webkit-transition: background 0.3s;
+  -moz-transition: background 0.3s;
+  transition: background 0.3s;
+}
+
+#menu-nav .cd-nav-trigger span::before, .cd-nav-trigger span::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  background: inherit;
+  width: 100%;
+  height: 100%;
+  -webkit-transition: -webkit-transform 0.3s, background 0s;
+  -moz-transition: -moz-transform 0.3s, background 0s;
+  transition: transform 0.3s, background 0s;
+}
+
+#menu-nav .cd-nav-trigger span::before {
+  top: -6px;
+  -webkit-transform: rotate(0);
+  -moz-transform: rotate(0);
+  -ms-transform: rotate(0);
+  -o-transform: rotate(0);
+  transform: rotate(0);
+}
+#menu-nav .cd-nav-trigger span::after {
+  bottom: -6px;
+  -webkit-transform: rotate(0);
+  -moz-transform: rotate(0);
+  -ms-transform: rotate(0);
+  -o-transform: rotate(0);
+  transform: rotate(0);
+}
+
+#menu-nav .cd-nav-trigger.menu-is-open {
+  box-shadow: none;
+}
+
+#menu-nav .cd-nav-trigger.menu-is-open span {
+  background: rgba(232, 74, 100, 0);
+}
+
+#menu-nav .cd-nav-trigger.menu-is-open span::before, .cd-nav-trigger.menu-is-open span::after {
+  background: #e84a64;
+}
+
+#menu-nav .cd-nav-trigger.menu-is-open span::before {
+  top: 0;
+  -webkit-transform: rotate(-135deg);
+  -moz-transform: rotate(-135deg);
+  -ms-transform: rotate(-135deg);
+  -o-transform: rotate(-135deg);
+  transform: rotate(-135deg);
+}
+
+#menu-nav .cd-nav-trigger.menu-is-open span::after {
+  bottom: 0;
+  -webkit-transform: rotate(-225deg);
+  -moz-transform: rotate(-225deg);
+  -ms-transform: rotate(-225deg);
+  -o-transform: rotate(-225deg);
+  transform: rotate(-225deg);
+}
+
+
+/*---------------------------
+  动画
+------------------------------*/
+@-webkit-keyframes cd-slide-in {
+  0% {
+    -webkit-transform: translateX(-100px);
+  }
+
+  100% {
+    -webkit-transform: translateY(0);
+  }
+}
+@-moz-keyframes cd-slide-in {
+  0% {
+    -moz-transform: translateX(-100px);
+  }
+
+  100% {
+    -moz-transform: translateY(0);
+  }
+}

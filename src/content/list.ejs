@@ -1,0 +1,58 @@
+<%- include header %>
+<!-- 头部选项 -->
+<header>
+
+</header>
+<!-- 主要内容 -->
+<main>
+  <div class="cd-header"></div>
+  <div class="cd-tab-wrapper">
+    <div class="cd-tab-filter">
+      <ul>
+        <li class="placeholder"><a href="#">排序列表</a></li>
+        <li><a href="#" class="sort" data-type='no-sort' data-sort='random'>无序</a></li>
+        <li><a href="#" data-type="time-sort" data-sort="default" class="selected sort">时间序</a></li>
+        <li><a href="#" data-type="vote-sort" data-sort='myorder:asc' class="sort">点赞序</a></li>
+      </ul>
+    </div>
+  </div>
+  <ul id="cd-gallery-items" class="cd-container">
+    <% data.map(function (data, index) { %>
+      <li class="mix" data-myorder="">
+        <ul class="cd-item-wrapper">
+          <li class="cd-item-front"><img class="front" src="../../img/b2cdcd58.thumb-1.jpg"></li>
+          <li class="cd-item-middle"><img class="middle" src="../../img/ca6b495f.thumb-2.jpg"></li>
+          <li class="cd-item-back"><img class="back" src="../../img/f1d1592a.thumb-4.jpg"></li>
+        </ul>
+        <div class="cd-item-info">
+          <b><a href="/detail/<%= data._id %>"><%= data.title %></a></b>
+          <button id="vote" data-id="<%= data._id %>"><%= data.vote %></button>
+        </div>
+        <nav>
+          <ul class="cd-item-navigation">
+            <li><a href="#" class="cd-img-replace">Prev</a></li>
+            <li><a href="#" class="cd-img-replace">Next</a></li>
+          </ul>
+        </nav>
+      </li>
+    <% }) %>
+  </ul>
+</main>
+<!-- 选项菜单 -->
+<nav id="menu-nav">
+</nav>
+<!-- 登录注册部分 -->
+<div class="fullscreen">
+  <div class="log-container">
+    <div class="" id="full-screen-Log">
+
+    </div>
+    <div class="" id="full-screen-sign">
+    </div>
+  </div>
+  <a href="#" class="close-button">×</a>
+</div>
+<footer></footer>
+<script type="text/javascript" src="/list.js"></script>
+</body>
+</html>

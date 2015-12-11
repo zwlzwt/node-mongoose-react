@@ -1,0 +1,20 @@
+{
+  "name": "myweb",
+  "version": "1.0.0",
+  "authors": [
+    "Your Name <you@example.com>"
+  ],
+  "description": "design",
+  "main": "app.js",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "mixitup": "~2.1.11"
+  }
+}

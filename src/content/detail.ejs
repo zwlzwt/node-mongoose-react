@@ -1,0 +1,70 @@
+<%- include header %>
+<!-- 头部选项 -->
+<header>
+
+</header>
+<!-- 主要内容 -->
+<menu>
+  <h1><%= title %></h1>
+  <article class="">
+    <%= describe %>
+  </article>
+  <img id="cd-img1">
+  <img id="cd-img2">
+  <img id="cd-img3">
+  <img id="cd-img4">
+  <div class="cd-comment">
+    <% comments.map(function (comment, index) {%>
+      <div class="cd-comment-container">
+        <div class="cd-main-comment">
+          <a class="commentId" href="#comments" data-cid="<%= comment._id %>" data-tid="<%= comment.from._id %>"></a>
+          <div class=""></div>
+          <div class="cd-clientName"><%= comment.from.name %></div>
+          <div class="cd-clientContent"><%= comment.content %></div>
+        </div>
+        <% if (comment.replay && comment.replay.length > 0){ %>
+          <% comment.replay.forEach(function (replay, index){ %>
+              <div class="cd-replay">
+                <a class="commentId" href="#comments" data-cid="<%= comment._id %>" data-tid="<%= replay.from._id %>"></a>
+                <div class=""></div>
+                <div class="cd-replayName"><%= replay.from.name %><span>@</span><%= replay.to.name %></div>
+                <div class="cd-replayContent"><%= replay.content %></div>
+              </div>
+          <% }) %>
+        <% } %>
+      </div>
+    <% }) %>
+  </div>
+  <form class="cd-upComment" action="/api/comment" method="post" id="comments">
+    <input type="hidden" name="comment[building]" value='<%= build._id %>'>
+    <% if (user){ %>
+      <input type="hidden" name="comment[from]" value='<%= user._id %>'>
+    <% } %>
+    <label for="cd-textarea">请说出真心话...</label>
+    <textarea name="comment[content]" id="cd-textarea"></textarea>
+    <% if (user){ %>
+      <button type="submit">提交</button>
+    <% } else { %>
+      <span>登陆后可以参与评论</span>
+    <% } %>
+  </form>
+</menu>
+<!-- 选项菜单 -->
+<nav id="menu-nav">
+</nav>
+
+<!-- 登录注册部分 -->
+<div class="fullscreen">
+  <div class="log-container">
+    <div class="" id="full-screen-Log">
+
+    </div>
+    <div class="" id="full-screen-sign">
+    </div>
+  </div>
+  <a href="#" class="close-button">×</a>
+</div>
+<footer></footer>
+<script type="text/javascript" src="/detail.js"></script>
+</body>
+</html>
